@@ -5,9 +5,19 @@ with open('tweet1.json', 'r') as f:
 	data = f.read()
 #	data = f.readlines()
 
+# Loop through file
+
+# Cut String Into Sections
+	# Created_at
+	# id
+	# id_str
+	# text
+	# source
+
 # Create File for Sorted Information
 with open('sortedTweets.txt', 'w') as f:
 	f.writelines(data)
+
 
 # print(type(data))		# Prints the type(?) of data
 # data.sort()			# Sorts data

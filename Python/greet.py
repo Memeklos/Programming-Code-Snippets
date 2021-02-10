@@ -1,3 +1,5 @@
+# Script that cuts the greet string into chunks and prints it out
+
 greet = "Hello World!"
 print(greet)
 
