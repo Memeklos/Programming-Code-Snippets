@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main() {
+
+	float uno;
+	float dos;
+	float total;
+	char op;
+
+	printf("Enter a number: ");
+		scanf("%d", &uno);
+	printf("Enter an operation: ", &);
+	printf("Enter another number: ",&dos);
+
+	if ( op == '+') {
+		
+printf("");
+	}
+	else if ()
+
+
+	return 0;
+}

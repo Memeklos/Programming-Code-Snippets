@@ -1,0 +1,52 @@
+#include <stdio.h>
+
+int reservestat(int a);
+int printstat();
+int seat[9] = {0};
+
+int main() {
+
+	int reserve;
+	int cabin = 0;
+
+	while (cabin < 10) {
+		printstat();
+		printf("Which seat would you like to reserve? ");
+			scanf("%d", &reserve);
+		reservestat(reserve);
+		cabin++;
+	}
+
+	printf("'This is your pilot speaking. We are clear for takeoff!'\n\n");
+
+	return 0;
+}
+
+int reservestat(int r) {
+
+	if (r > 10) {
+		printf("That seat doesn't exist.\n");
+		return 0;
+	} else if (r < 1) {
+		printf("That seat doesn't exist.\n");
+		return 0;
+	}
+	if (seat[r-1] == 0) {
+		seat[r-1] = 1;
+		printf("Seat #%d reserved!\n", r);
+	}
+	else if (seat[r-1] == 1) {
+		printf("This seat is already reserved!\n");
+	}
+}
+
+int printstat() {
+
+	printf("\nCurrent reservation status:\n");
+     if (seat[0] == 0) {
+         printf("Seat #1: Available\n");
+     } else printf("Seat #1: Unavailable\n");     if (seat[0] == 0) {
+         printf("Seat #1: Available\n");
+     } else printf("Seat #1: Unavailable\n");
+	return 0;
+}

@@ -1,0 +1,74 @@
+#include <stdio.h>
+
+int reservestat(int a);
+
+int main() {
+
+	int reserve;
+	int cabin = 0;
+
+	while (cabin < 10) {
+		reservestat(reserve);
+		printf("Which seat would you like to reserve? ");
+			scanf("%d", &reserve);
+		printf("Seat #%d reserved!\n", reserve);
+		seat++;
+	}
+
+	printf("'This is your pilot speaking. We are clear for takeoff!'\n\n");
+
+	return 0;
+}
+
+int reservestat(int r) {
+
+	int seats[9] = {0};
+	int a, b, c, d, e, f, g, h, i, j;
+	int ope[]="Available";
+	int nope[]="Unavailable";
+
+	if (seat[1] = 0) {
+		
+a = ope;
+	}
+	if else (seat[2] = 0) {
+		b = ope;
+	}
+	if (r == 3) {
+		c = ope;
+	}
+	if (r == 4) {
+		d = ope;
+	}
+	if (r == 5) {
+		e = ope;
+	}
+	if (r == 6) {
+		f = ope;
+	}
+	if (r == 7) {
+		g = ope;
+	}
+	if (r == 8) {
+		h = ope;
+	}
+	if (r == 9) {
+		i = ope;
+	}
+	if (r == 10) {
+		j = ope;
+	}
+
+	printf("\nCurrent reservation status:\n");
+	printf("Seat #1: %d\n", a);
+	printf("Seat #2: %d\n", b);
+	printf("Seat #3: %d\n", c);
+	printf("Seat #4: %d\n", d);
+	printf("Seat #5: %d\n", e);
+	printf("Seat #6: %d\n", f);
+	printf("Seat #7: %d\n", g);
+	printf("Seat #8: %d\n", h);
+	printf("Seat #9: %d\n", i);
+	printf("Seat #10: %d\n", j);
+
+}
