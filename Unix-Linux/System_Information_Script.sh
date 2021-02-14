@@ -25,7 +25,7 @@ echo "Total System Users: $total_users"
 sys_users="$(cat /etc/passwd | cut -d ':' -f 1)"
 # Prints the usernames
 echo "System User Account Names:"
-echo "$sys_users"
+#echo "$sys_users"
 
 ## Total of Root Commands Run ##
 # Prints the /etc/passwd file and counts the number of commands
@@ -33,34 +33,42 @@ root_cmd="$(cat /root/.bash_history | wc -l)"
 # Prints the number of commands
 echo "Total Root Commands: $root_cmd"
 
-## De-duplicated list of users that have actually logged in at some point
-#act_users="$()"
-echo "Actual Users: $act_users"
-#◦ Relevant commands: last, cut, sort, uniq
+## Actual Users ##
+# Prints a de-duplicated list of users that have actually logged in at some point
+act_users="$(last | head -n -2 | grep -v "reboot" | cut -d " " -f 1 | sort -u)"
+# Prints actual users
+echo "Actual Users:"
+echo "$act_users"
 
 ## C Source-Code File List ##
-## A list of any C source-code files files on the system (those ending in “.c”)
-c_source="$(find -name "*.c")"
+# Finds a list of C source-code files files on the system
+c_source="$(find / -name "*.c")"
+# Prints list of C source-code files
 echo "C Source Code File List:"
 echo "$c_source"
 
-#7) A list of any files in /etc/ containing the word “documentation”
-#docu_files="$()"
-echo "Files Containing 'Documentation': $docu_files"
-#◦ Relevant commands: find, cat, grep
+## Files In /etc/ Containing `Documentation` ##
+# Finds files in /etc/, filters by those with the word -documentation-, and prints them
+docu_files="$(find /etc/ -type f -exec grep "documentation" '{}' \; -print)"
+# Prints list of files
+echo "Files Containing 'Documentation':"
+echo "$docu_files"
 
-#8) The type of CPU in use on the machine
-#cpu_type="$()"
+## Machine's CPU Type ##
+# Prints the /proc/cpuinfo, find the `model name`, cuts the field after, and uses only unique portions
+cpu_type="$(cat /proc/cpuinfo | grep -i 'model name' | cut -d ':' -f 2 | sort -u)"
+# Prints out the CPU type
 echo "CPU Type: $cpu_type"
-#◦ Relevant files: /proc/cpuinfo (the “model name” field)
-#◦ Relevant commands: cat, grep, cut
 
-#9) A list of files in /dev/ which begin with the letters “sd...”
-#sd_files="$(find /dev/ -name "sd")"
+## List With `sd` In The Title ##
+# Finds a list of files in /dev/ which begin with the letters “sd”
+sd_files="$(find /dev/ -name "sd*")"
+# Prints list of sd files
+echo "List of files with 'sd' in the title"
 echo "$sd_files"
 
-#10) Your main network adapter’s MAC address
-#mac_addr="$()"
+## Main Network Adapter’s MAC Address ##
+# Uses grep to find the `ether` field in ifconfig, and cuts the field
+mac_addr="$(ifconfig | grep "ether" | cut -d " " -f 10)"
+# Prints the network adapter MAC address
 echo "Main Network Adapter MAC Address: $mac_addr"
-#◦ Relevant commands: ip a, grep, cut
-#◦ Hint: Look for “link/ether” in the output
