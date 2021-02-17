@@ -26,5 +26,5 @@ cp /etc/passwd FindUserRoot.txt
 grep ":x:0" FindUserRoot.txt
 
 ## Problem 4 ##
-# Loop through files one by one
-# Checks current file against MD5 hash
+# Searches through files, checks current file against MD5 hash
+find . -type f -exec bash -c 'md5sum "$0" | grep -q 81749d0a1c143b690588721931fa96d100a4ae27e6b713c18ed47e335a30529c2a22fb5344057f7019118d99335fa807 && echo $0' {} \;
