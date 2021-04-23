@@ -41,7 +41,7 @@ then
     echo "$info"
     echo "The following files and directories will be decompressed to $dname/:"
     echo "$prep"
-    # Compresses the given directory name to a tar file with the directory name
+    # Decompresses the given directory name from a tar file with the directory name
     tar xJfv $dname.tar
     # Prints that the restore is complete
     echo "$complete"
