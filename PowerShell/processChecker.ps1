@@ -4,10 +4,11 @@
 $proc=$args[0]
 $inf=1
 
-# Takes sleep time (X) as an optional argument (provides a default value)
+# If there is no second argument, provides a default sleep value
 if ($args[1] -eq $null) {
     $sleep=30
 }
+# Otherwise sets the sleep variable to the input
 else {
     $sleep=$args[1]
 }
