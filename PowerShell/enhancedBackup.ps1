@@ -29,6 +29,7 @@ $files = Get-ChildItem ./ | Where-Object {$_.Extension -eq '.$extension'} | ForE
     Write-Host "Total messages: $($results.Count)"
     $results
 }
+# Get-ChildItem -Path ./* -Include *$ext
 # Tell the user which files were backed up
 
 
