@@ -23,3 +23,4 @@ New-LocalUser -Name "User02" -Description "Description of this account."
 
 
 
+Get-User -Identity "Coy Damon" | Format-List
