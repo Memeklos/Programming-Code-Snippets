@@ -3,8 +3,5 @@
 # Takes the file name as a script argument
 $fname=$args[0]
 
-
-# Makes a copy of that file and add “.backup” to the name
-
-
-
+# Copy the file to a new file with the .backup extension
+copy $fname "$fname.backup"
