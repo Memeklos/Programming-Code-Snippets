@@ -5,3 +5,5 @@ $fname=$args[0]
 
 # Copy the file to a new file with the .backup extension
 Copy-Item $fname "$fname.backup"
+# Print out that file has been copied
+Write-Host
