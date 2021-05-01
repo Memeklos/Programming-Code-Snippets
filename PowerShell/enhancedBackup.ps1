@@ -12,8 +12,8 @@ Foreach ($file in $folder) {
     copy $fname backup/$fname
 }
 # Creates the folder backup if necessary
-if (!Backup)
-New-Item -Path "c:\" -Name "backup" -ItemType "directory"
+#if (!Backup)
+New-Item -Name "backup" -ItemType "directory"
 
 # Tell the user which files were backed up
 
