@@ -19,11 +19,16 @@ else {
 
 # Within the current directory, copy all files matching the argument to a folder called backup
 #Get-ChildItem ./ | Where-Object {$_.Extension -eq '.$extension'} | ForEach-Object { Copy-Item -Path $file.FullName -Destination $folder }
-$files = Get-ChildItem ./ | Where-Object {$_.Extension -eq '.$extension'}
-Foreach ($file in $files) {
-Copy-Item -Path $file.FullName -Destination $folder
+$files = Get-ChildItem ./ | Where-Object {$_.Extension -eq '.$extension'} | ForEach-Object -Begin {
+    $results = @()
+} -Process {
+    #Create and store message
+    $results += "Hi, my name is $_!"
+} -End {
+    #Count messages and output
+    Write-Host "Total messages: $($results.Count)"
+    $results
 }
-
 # Tell the user which files were backed up
 
 
