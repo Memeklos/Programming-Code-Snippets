@@ -15,21 +15,10 @@ else {
     Write-Host "The directory $folder has been created"
 }
 
-#Get-ChildItem ./ | Select-Object Name
-
-# Within the current directory, copy all files matching the argument to a folder called backup
-#Get-ChildItem ./ | Where-Object {$_.Extension -eq '.$extension'} | ForEach-Object { Copy-Item -Path $file.FullName -Destination $folder }
-$files = Get-ChildItem ./ | Where-Object {$_.Extension -eq '.$extension'} | ForEach-Object -Begin {
-    $results = @()
-} -Process {
-    #Create and store message
-    $results += "Hi, my name is $_!"
-} -End {
-    #Count messages and output
-    Write-Host "Total messages: $($results.Count)"
-    $results
+# Within the current directory, get the attributes of all files where the extension matches the ext variable
+Get-ChildItem ./ | Where-Object {$_.Extension -eq "$ext"} | ForEach-Object {
+    # Copies the current item to the folder directory
+    Copy-Item $_.Name -Destination ./$folder  
 }
-# Get-ChildItem -Path ./* -Include *$ext
-# Tell the user which files were backed up
-
-
+# Gets the attributes of all files in the folder directory and prints out that it has backed up each file and the file name
+Get-ChildItem ./$folder | Where-Object {$_.Extension -eq "$ext"} | ForEach-Object { Write-Host "Backed up" $_.Name }
