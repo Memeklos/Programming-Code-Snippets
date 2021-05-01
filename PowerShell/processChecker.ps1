@@ -1,26 +1,33 @@
 ## This script checks a given process to see if it is running ##
 
-# Takes a process ID as a script argument
+# Sets the proc variable to the given process ID
 $proc=$args[0]
-$inf=1
+# Sets the inf (infinity) variable
+$inf=0
 
-# If there is no second argument, provides a default sleep value
+# If no sleep variable is given, sets a default sleep variable
 if ($args[1] -eq $null) {
-    $sleep=30
+    $sleep=15
 }
-# Otherwise sets the sleep variable to the input
+# Otherwise, uses the given argument to set the sleep variable
 else {
     $sleep=$args[1]
 }
-# Watches the process and check every X seconds to see if it is still running
-while ($inf -eq 1) {
-    Get-Process -Id $proc | Format-Table Id, ProcessName -autosize
-#    if ($inf -eq 1) {
-#        Write-Host "Process is running"
-#    }
-#    else {
-#    }
+
+# Loops until canceled
+while ($inf -eq 0) {
+    # Uses the given process ID to see if the process is listed
+    $check=Get-Process -Id $proc -ErrorAction SilentlyContinue
+    # If the process is not listed
+    if ($check -eq $null) {
+        # Prints that the process is not running
+        Write-Host "Process is not running"
+    }
+    # If the process is listed
+    else {
+        # Prints that the process is running
+        Write-Host "Process is running"
+    }
+    # Starts the sleep timer
     Start-Sleep $sleep
 }
-
-# Sets the output accordingly with the status of the process
