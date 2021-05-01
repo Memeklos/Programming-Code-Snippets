@@ -4,4 +4,4 @@
 $fname=$args[0]
 
 # Copy the file to a new file with the .backup extension
-copy $fname "$fname.backup"
+Copy-Item $fname "$fname.backup"
