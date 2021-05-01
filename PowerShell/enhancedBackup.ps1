@@ -18,8 +18,11 @@ else {
 #Get-ChildItem ./ | Select-Object Name
 
 # Within the current directory, copy all files matching the argument to a folder called backup
-Get-ChildItem ./ | Where-Object {$_.Extension -eq '.$extension'} | ForEach-Object { Copy-Item -Path $file.FullName -Destination $folder }
-
+#Get-ChildItem ./ | Where-Object {$_.Extension -eq '.$extension'} | ForEach-Object { Copy-Item -Path $file.FullName -Destination $folder }
+$files = Get-ChildItem ./ | Where-Object {$_.Extension -eq '.$extension'}
+Foreach ($file in $files) {
+Copy-Item -Path $file.FullName -Destination $folder
+}
 
 # Tell the user which files were backed up
 
