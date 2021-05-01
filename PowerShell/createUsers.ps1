@@ -17,7 +17,7 @@ Create Local User Accounts
 
 # Creates a local user account for each user in the text file
 
-
+New-LocalUser -Name "User02" -Description "Description of this account."
 
 
 
