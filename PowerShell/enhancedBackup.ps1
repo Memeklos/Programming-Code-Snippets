@@ -13,11 +13,11 @@ Foreach ($file in $folder) {
 }
 # Creates the folder backup if necessary
 if (Test-Path -path $folder -IsValid) {
-    Write-Host "$folder already exists"
+    Write-Host "The directory $folder already exists"
 }
 else {
     New-Item -Name "$folder" -ItemType "directory"
-    Write-Host "$folder has been created"
+    Write-Host "The directory $folder has been created"
 }
 # Tell the user which files were backed up
 
