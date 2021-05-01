@@ -8,7 +8,8 @@ Create Local User Accounts
 
 # Takes the password from the user
 
-
+ForEach-Object { Add-Content -Path .\LineNumbers.txt -Value "This is line $_." }
+Get-Content -Path .\LineNumbers.txt
 
 # Uses the same default password for each account
 
