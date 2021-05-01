@@ -2,7 +2,7 @@
 
 # Takes an extension as a script argument
 $ext=$args[0]
-
+$folder="backup"
 Get-ChildItem ./ | Select-Object Name
 
 Get-ChildItem ./ | where-object {$_.Extension -eq '.$extension'}
@@ -12,9 +12,13 @@ Foreach ($file in $folder) {
     copy $fname backup/$fname
 }
 # Creates the folder backup if necessary
-#if (!Backup)
-New-Item -Name "backup" -ItemType "directory"
-
+if (Test-Path -path $folder -IsValid) {
+    Write-Host "$folder already exists"
+}
+else {
+    New-Item -Name "$folder" -ItemType "directory"
+    Write-Host "$folder has been created"
+}
 # Tell the user which files were backed up
 
 
