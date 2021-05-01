@@ -4,6 +4,7 @@
 
 
 Get-ChildItem c:\folder | Where{$_.LastWriteTime -gt (Get-Date).AddDays(-7)}
+"%A %m/%d/%Y %R %Z"
 # Name the new zip file with the current date
 
 
