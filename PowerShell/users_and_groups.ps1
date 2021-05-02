@@ -19,3 +19,22 @@ if (Get-ADUser -F { SamAccountName -eq $username }) {
 
         # User does not exist then proceed to create the new user account
     }
+-SamAccountName $username `
+            -UserPrincipalName "$username@$UPN" `
+            -Name "$firstname $lastname" `
+            -GivenName $firstname `
+            -Surname $lastname `
+            -Initials $initials `
+            -Enabled $True `
+            -DisplayName "$lastname, $firstname" `
+            -Path $OU `
+            -City $city `
+            -PostalCode $zipcode `
+            -Company $company `
+            -State $state `
+            -StreetAddress $streetaddress `
+            -OfficePhone $telephone `
+            -EmailAddress $email `
+            -Title $jobtitle `
+            -Department $department `
+            -AccountPassword (ConvertTo-secureString $password -AsPlainText -Force) -ChangePasswordAtLogon $True
