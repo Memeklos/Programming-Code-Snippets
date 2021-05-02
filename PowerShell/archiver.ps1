@@ -1,4 +1,5 @@
 ## This script zip up any file in the current directory that hasn’t been modified in the given day/s ##
+# Stops the script if an error occurs
 $ErrorActionPreference = "Stop"
 # Sets the days variable to the passed argument
 $days=$args[0]
