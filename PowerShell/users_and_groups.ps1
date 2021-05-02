@@ -19,6 +19,22 @@ if (Get-ADUser -F { SamAccountName -eq $username }) {
 
         # User does not exist then proceed to create the new user account
     }
+    $username = $User.username
+    $password = $User.password
+    $firstname = $User.firstname
+    $lastname = $User.lastname
+    $initials = $User.initials
+    $OU = $User.ou #This field refers to the OU the user account is to be created in
+    $email = $User.email
+    $streetaddress = $User.streetaddress
+    $city = $User.city
+    $zipcode = $User.zipcode
+    $state = $User.state
+    $telephone = $User.telephone
+    $jobtitle = $User.jobtitle
+    $company = $User.company
+    $department = $User.department
+    
 -SamAccountName $username `
             -UserPrincipalName "$username@$UPN" `
             -Name "$firstname $lastname" `
