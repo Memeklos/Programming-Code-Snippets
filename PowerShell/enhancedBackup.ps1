@@ -6,7 +6,7 @@ $ext=$args[0]
 $folder="backup"
 
 # If the directory is already created, prints that it exists
-if (Test-Path -path $folder -IsValid) {
+if (Test-Path -path $folder) {
     Write-Host "The directory $folder already exists"
 }
 # Otherwise, creates the directory and prints that it has been created
