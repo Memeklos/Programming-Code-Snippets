@@ -5,7 +5,7 @@ param (
 )
 
 BeforeAll { 
-    . $PSScriptRoot/archiver.ps1
+    . $PSScriptRoot/archiver.ps1 $Path
 }
 
 Describe 'Archiver' {
