@@ -1,4 +1,5 @@
-## This script checks a given process to see if it is running ##
+## Process Checker ##
+# This script checks a given process to see if it is running #
 
 # Sets the proc variable to the given process ID
 $proc=$args[0]
