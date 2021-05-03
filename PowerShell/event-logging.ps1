@@ -1,4 +1,5 @@
 ## Event Logging ##
+# This script creates an event log, limits the size and actions of the log, writes logs to the event log, exports the event log to a csv file, then clears the event log #
 
 # Print a list of available eventlogs
 Get-EventLog -List
