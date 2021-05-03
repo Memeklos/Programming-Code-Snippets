@@ -1,3 +1,6 @@
+## Hot-fix Checker ##
+# This script takes a given KB number, lists the hotfixes from the listed computers, and loops through the hot-fix IDs while checking against the KB number #
+
 # Sets the variable kb to the passed argument
 $kb=$args[0]
 # Sets the hf variable to zero
