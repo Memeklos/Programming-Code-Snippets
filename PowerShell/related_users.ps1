@@ -1,4 +1,5 @@
 ﻿## Get Related Users ##
+# This script takes the given user and lists the groups related users of those groups #
 
 # Sets the username variable to the passed argument
 $username=$args[0]
