@@ -1,4 +1,5 @@
-﻿## List Users By Group ##
+## List Users By Group - Active Directory ##
+# This script lists the users in each group #
 
 # Sets the group variable to the passed argument
 $group=$args[0]
