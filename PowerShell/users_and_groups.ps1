@@ -1,4 +1,6 @@
 # Creating Users and Groups
+## Archiver ##
+# This script takes the given csv filename and creates a user for each entry #
 
 $ErrorActionPreference = "Stop"
 # Set file variable to the passed argument
