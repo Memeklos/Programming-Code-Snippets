@@ -1,5 +1,5 @@
-# Local User Account Creation #
-## This script creates new local user accounts ##
+## Local User Account Creation ##
+# This script creates new local user accounts #
 
 # Sets the fname variable to the given argument
 $fname=$args[0]
