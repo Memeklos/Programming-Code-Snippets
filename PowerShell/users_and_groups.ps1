@@ -1,5 +1,4 @@
-# Creating Users and Groups
-## Archiver ##
+## Creating Users and Groups - Active Directory ##
 # This script takes the given csv filename and creates a user for each entry #
 
 $ErrorActionPreference = "Stop"
