@@ -1,4 +1,6 @@
-## This script back up the given file by making a copy with the .backup extension ##
+## Backup ##
+# This script back up the given file by making a copy with the .backup extension #
+
 # Stops the script if an error occurs
 $ErrorActionPreference = "Stop"
 # Sets the fname variable to the given file name
