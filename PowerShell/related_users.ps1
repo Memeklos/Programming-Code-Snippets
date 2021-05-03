@@ -1,4 +1,4 @@
-﻿## Get Related Users ##
+## Get Related Users - Active Directory ##
 # This script takes the given user and lists the groups related users of those groups #
 
 # Sets the username variable to the passed argument
