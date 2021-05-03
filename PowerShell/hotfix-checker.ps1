@@ -4,7 +4,7 @@ $kb=$args[0]
 $hf=0
 
 # Get list of hotfixes from multiple remote machines (use an array)
-$list = Get-Hotfix -ComputerName 192.168.1.2 -Credential XYZ\Administrator | ForEach-Object {
+$list = Get-Hotfix -ComputerName 192.168.1.2, 192.168.1.3 -Credential XYZ\Administrator | ForEach-Object {
     Write-Host "Searching..."
     if ($_.HotFixID -eq $kb){
         $hf++
