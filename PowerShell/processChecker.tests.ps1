@@ -1,4 +1,4 @@
-﻿# Process Checker Test
+# Process Checker Test
 param (
     [Parameter(Mandatory)]
     [string] $Path
