@@ -1,4 +1,4 @@
-﻿# Enhanced Backup Test
+# Enhanced Backup Test
 param (
     [Parameter(Mandatory)]
     [string] $Path
