@@ -1,4 +1,5 @@
-﻿## Group Checking ##
+## Group Checking - Active Directory  ##
+# This script lists all the groups, grabs the group name, loops through each group, and prints the users in each group #
 
 # List the groups, grabs all SAM account names, and loops through each
 Get-ADGroup -Filter * | Where-Object {$_.SamAccountName} | ForEach-Object {
