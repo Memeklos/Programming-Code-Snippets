@@ -1,4 +1,5 @@
-## This script backs up all given files in the current directory with a given extension into a separate folder ##
+## Enhanced Backup ##
+# This script backs up all given files in the current directory with a given extension into a separate folder #
 
 # Sets the ext variable to the first argument
 $ext=$args[0]
