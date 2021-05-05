@@ -18,8 +18,19 @@ until [ "$option" -eq "8" ]
 do
     ## Menu ##
     # Prints the menu
-    printf "\n ------------- Menu: -------------\n 1. List Users\n 2. Create User\n 3. Delete User\n"
-    printf " 4. List Groups\n 5. Create Group\n 6. Delete Group\n 7. Change User Password\n 8. Exit\n\n Enter your choice [ 1 - 8 ]\n"
+    printf "\n------------- Menu: -------------"
+    printf "\n|    1. List Users              |"
+    printf "\n|    2. Create User             |"
+    printf "\n|    3. Delete User             |"
+    printf "\n|    4. List Groups             |"
+    printf "\n|    5. Create Group            |"
+    printf "\n|    6. Delete Group            |"
+    printf "\n|    7. Change User Password    |"
+    printf "\n|    8. Exit                    |"
+    printf "\n---------------------------------"
+    echo "$info"
+    printf "\nEnter your choice [ 1 - 8 ]$reset\n"
+
     # Reads in user's choice
     read option
 
@@ -29,7 +40,7 @@ do
     if [ "$option" -eq "1" ]
     then
       # Prints the heading
-      echo "-- List of Users --"
+      echo "--------- List of Users ---------"
       echo "$info"
       act_users="$(cat /etc/passwd | cut -d ':' -f 1 | sort -u)"
       # Prints the variable to the screen
@@ -40,9 +51,9 @@ do
     elif [ "$option" -eq "2" ];
     then
       # Prints the heading
-      echo "-- Creating a User --"
+      echo "-------- Creating a User --------"
       # Asks for the username to be given
-      echo "User to create: "
+      echo "User: "
       # Reads in the the username
       read user
       # Creates a user with the given username
@@ -57,9 +68,9 @@ do
     elif [ "$option" -eq "3" ];
     then
       # Prints the heading
-      echo "-- Deleting a User -- "
+      echo "-------- Deleting a User --------"
       # Asks for the username to be given
-      echo "User to delete: "
+      echo "User: "
       # Reads in the the username
       read user
       # Sets variable to the output of netstat / ss
@@ -74,7 +85,7 @@ do
     elif [ "$option" -eq "4" ];
     then
       # Prints the heading
-      echo "-- List of Groups --"
+      echo "-------- List of Groups ---------"
       # Prints the /etc/group file, cuts everything after the group name
       echo "$info"
       cat /etc/group | cut -d ':' -f 1
@@ -84,7 +95,7 @@ do
     elif [ "$option" -eq "5" ];
     then
       # Prints the heading
-      echo "-- Creating a Group --"
+      echo "------- Creating a Group --------"
       # Asks for the groupname to be given
       echo "Group to create: "
       # Reads in the the group
@@ -101,7 +112,7 @@ do
     elif [ "$option" -eq "6" ];
     then
       # Prints the heading
-      echo "-- Deleting a Group --"
+      echo "-------  Delete a Group   -------"
       # Asks for the groupname to be given
       echo "Group to delete: "
       # Reads in the the group
@@ -118,9 +129,9 @@ do
     elif [ "$option" -eq "7" ];
     then
       # Prints the heading
-      echo "-- Changing a User's Password --"
+      echo "---  Change a User Password   ---"
       # Asks for the username to be given
-      echo "User to create: "
+      echo "User: "
       # Reads in the the username
       read user
       # Creates a user with the given username
