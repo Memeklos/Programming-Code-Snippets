@@ -4,14 +4,13 @@
 ## This bash script prints a menu of user management options, lets the user select from the options, and prints the option ##
 
 ## Colors ##
-# Sets the info variable to yellow
-info=$'\u001b[33m'
-# Sets the prep variable to cyan
-prep=$'\u001b[36m'
-# Sets the complete variable to green
-complete=$'\e[1;32m'
-# Sets the error variable to red
-error=$'\033[0;31m'
+# Sets the info variable to cyan
+info=$'\u001b[36m'
+# Sets the created variable to green
+created=$'\e[1;32m'
+# Sets the removed variable to red
+removed=$'\033[0;31m'
+# Sets the reset variable to white
 reset=$'\033[0m'
 
 # Loops until the option 8 (quit) comes back
@@ -29,79 +28,106 @@ do
     # If 1 comes back
     if [ "$option" -eq "1" ]
     then
-      # Sets variable to the output of uname -a
+      # Prints the heading
       echo "-- List of Users --"
-      echo "$complete"
+      echo "$info"
       act_users="$(cat /etc/passwd | cut -d ':' -f 1 | sort -u)"
       # Prints the variable to the screen
       echo "$act_users"
       echo "$reset"
     ## 2. Create User ##
     # If 2 comes back
-    elif [ "$option" -eq "2" ]
+    elif [ "$option" -eq "2" ];
     then
-      # Asks for the username to be given
+      # Prints the heading
       echo "-- Creating a User --"
-      echo "Name of new user: "
+      # Asks for the username to be given
+      echo "User to create: "
       # Reads in the the username
       read user
       # Creates a user with the given username
       useradd $user
       # Prints the variable to the screen
       # MAKE IF STATEMENT
-      echo "$complete"
+      echo "$created"
       echo "User $user has been created"
       echo "$reset"
     ## 3. Delete User ##
     # If 3 comes back
-    elif [ "$option" -eq "3" ]
+    elif [ "$option" -eq "3" ];
     then
-      # Asks for the username to be given
+      # Prints the heading
       echo "-- Deleting a User -- "
-      echo "Name of the user to delete: "
+      # Asks for the username to be given
+      echo "User to delete: "
       # Reads in the the username
       read user
       # Sets variable to the output of netstat / ss
       userdel $user
       # Prints the variable to the screen
       # MAKE IF STATEMENT
-      echo "$complete"
+      echo "$removed"
       echo "User $user has been deleted"
       echo "$reset"
     ## 4. List Groups ##
     # If 4 comes back
-    elif [ "$option" -eq "4" ]
+    elif [ "$option" -eq "4" ];
     then
-      # Sets variable to the output of ifconfig, looks for inet, cuts the field just after, and takes only the first line
-      ipaddress="$(ifconfig | grep "inet" | cut -d " " -f 10 | head -n1)"
-      # Prints the variable to the screen
-      echo "IP Address: $ipaddress"
+      # Prints the heading
+      echo "-- List of Groups --"
+      # Prints the /etc/group file, cuts everything after the group name
+      echo "$info"
+      cat /etc/group | cut -d ':' -f 1
+      echo "$reset"
     ## 5. Create Group ##
     # If 5 comes back
-    elif [ "$option" -eq "5" ]
+    elif [ "$option" -eq "5" ];
     then
-      # Sets variable to the output of who, and cuts everything out after the username
-      users="$(who | cut -d " " -f 1)"
+      # Prints the heading
+      echo "-- Creating a Group --"
+      # Asks for the groupname to be given
+      echo "Group to create: "
+      # Reads in the the group
+      read group
+      # Creates the given group
+      groupadd $group
       # Prints the variable to the screen
-      echo "Users Logged In:"
-      echo "$users"
+      # MAKE IF STATEMENT
+      echo "$created"
+      echo "Group $group has been created"
+      echo "$reset"
     ## 6. Delete Group ##
     # If 6 comes back
-    elif [ "$option" -eq "6" ]
+    elif [ "$option" -eq "6" ];
     then
-      # Sets variable to the output of df
-      usage="$(df)"
+      # Prints the heading
+      echo "-- Deleting a Group --"
+      # Asks for the groupname to be given
+      echo "Group to delete: "
+      # Reads in the the group
+      read group
+      # Deletes the given group
+      groupdel $group
       # Prints the variable to the screen
-      echo "Disk Usage:"
-      echo "$usage"
+      # MAKE IF STATEMENT
+      echo "$removed"
+      echo "Group $group has been deleted"
+      echo "$reset"
     ## 7. Change User Password ##
     # If 7 comes back
-    elif [ "$option" -eq "7" ]
+    elif [ "$option" -eq "7" ];
     then
-      # Sets variable to the output of ps -aux
-      proclist="$(ps -aux)"
-      echo "Process List:"
-      # Prints the variable to the screen
-      echo "$proclist"
+      # Prints the heading
+      echo "-- Changing a User's Password --"
+      # Asks for the username to be given
+      echo "User to create: "
+      # Reads in the the username
+      read user
+      # Creates a user with the given username
+      passwd $user
+      # Prints that the password has been changed
+      echo "$created"
+      echo "Password change for user $user completed"
+      echo "$reset"
     fi
 done
