@@ -13,6 +13,8 @@ removed=$'\033[0;31m'
 # Sets the reset variable to white
 reset=$'\033[0m'
 
+option=0
+
 # Loops until the option 8 (quit) comes back
 until [ "$option" -eq "8" ]
 do
